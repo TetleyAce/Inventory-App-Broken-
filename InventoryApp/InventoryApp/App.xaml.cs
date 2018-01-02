@@ -5,9 +5,26 @@ using System.Text;
 
 using Xamarin.Forms;
 
-using ZXing.Mobile;
+namespace Xamarin.Forms
+{
+    public class CircleButton : Button
+    {
+        public CircleButton() : base()
+        {
+        }
 
-namespace InventoryApp
+        protected override void OnParentSet()
+        {
+            base.OnParentSet();
+        }
+    }
+}
+
+
+
+
+
+    namespace InventoryApp
 {
 	public partial class App : Application
 	{
@@ -15,16 +32,9 @@ namespace InventoryApp
         static ItemDatabase database;
 		public App ()
 		{
-            try
-            {
-                InitializeComponent();
-            }
-            catch (Exception e)
-            {
+            InitializeComponent();
 
-                Console.WriteLine(e.Message);
-                Console.WriteLine(e.Data);
-            }
+
 			
 
 			MainPage = new NavigationPage( new ItemListPage());

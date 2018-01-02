@@ -4,21 +4,34 @@
              x:Class="InventoryApp.ItemPage">
     <ContentPage.Content>
         <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <Grid>
+            <Grid Margin=" 10 ">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Name" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Label Text="Name" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" Font="20"></Label>
                 <Entry Text="{Binding ItemName}" Grid.Row="0" Grid.Column="1"></Entry>
-                <Label Text="Barcode" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Label Text="Barcode" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" Font="20"></Label>
                 <Entry Text="{Binding Barcode}" Grid.Row="1" Grid.Column="1"></Entry>
-                <Label Text="Quantity" Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
-                <Entry Text="{Binding Quantity}" Grid.Row="2" Grid.Column="1"></Entry>
+
             </Grid>
-            <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" TextColor="White" Clicked="Save_Clicked"/>
-            <Button Text="Delete" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Delete_Clicked"/>
+
+            <Label Text="Quantity" Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center" Font="20"  Margin=" 10 "></Label>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="-" BackgroundColor="LightSlateGray"  WidthRequest="50" HeightRequest="50" Clicked="Subtraction_Clicked"/>
+                <Entry x:Name="CounterEntry" Text="{Binding Quantity}" Grid.Row="2" Grid.Column="1" WidthRequest="40" HorizontalTextAlignment="Center"></Entry>
+                <Button Text="+" BackgroundColor="LightSlateGray"  WidthRequest="50" HeightRequest="50" Clicked="Addition_Clicked"/>
+            </StackLayout>
+
+            <BoxView HeightRequest="1" WidthRequest="400" Margin="20"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Save" BackgroundColor="Blue" TextColor="White" Clicked="Save_Clicked" WidthRequest="100" HeightRequest="100" BorderRadius="20"/>
+                <Button Text="Scan"  BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" WidthRequest="100" HeightRequest="100" BorderRadius="20"/>
+                <Button Text="Delete"  BackgroundColor="Red" TextColor="White" Clicked="Delete_Clicked" WidthRequest="100" HeightRequest="100" BorderRadius="20"/>
+
+
+            </StackLayout>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

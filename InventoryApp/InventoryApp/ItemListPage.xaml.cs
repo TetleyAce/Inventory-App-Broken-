@@ -1,17 +1,14 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
 using ZXing.Mobile;
 
 namespace InventoryApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ItemListPage : ContentPage
 	{
 		public ItemListPage ()
@@ -19,35 +16,43 @@ namespace InventoryApp
 			InitializeComponent ();
             this.Title = "Item List";
 
-            var toolbarItem = new ToolbarItem
+            
+
+            var searchItem = new ToolbarItem
             {
-                Text = "+"
+                Icon = "search.png",
             };
 
-            toolbarItem.Clicked += async (sender, e) =>
+            searchItem.Clicked += async (sender, e) =>
+            {
+                await DisplayAlert("Coming Soon...", "The Search feature is not fully implemented yet please try again at a later time.", "OK!");
+            };
+
+            ToolbarItems.Add(searchItem);
+
+            var sortItem = new ToolbarItem
+            {
+                Icon = "sort.png"
+            };
+
+            sortItem.Clicked += async (sender, e) =>
+            {
+                await DisplayAlert("Coming Soon...", "The Sort feature is not fully implemented yet please try again at a later time.","OK!");
+            };
+
+            ToolbarItems.Add(sortItem);
+
+            var addItem = new ToolbarItem
+            {
+                Icon = "plus.png"
+            };
+
+            addItem.Clicked += async (sender, e) =>
             {
                 await Navigation.PushAsync(new ItemPage() { BindingContext = new Item() });
             };
 
-            ToolbarItems.Add(toolbarItem);
-
-            
-
-            var scanToolbarItem = new ToolbarItem
-            {
-                Text = "Scan"
-            };
-
-            scanToolbarItem.Clicked += async delegate
-            {
-                var scanner = new MobileBarcodeScanner();
-                var result = await scanner.Scan();
-                Console.WriteLine(result);
-            };
-
-            ToolbarItems.Add(scanToolbarItem);
-
-          
+            ToolbarItems.Add(addItem);
 
         }
 
@@ -55,6 +60,7 @@ namespace InventoryApp
         {
             base.OnAppearing();
             ItemListView.ItemsSource = await App.Database.GetItemAsync();
+            
         }
 
         async void Object_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)

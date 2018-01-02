@@ -21,6 +21,8 @@ namespace InventoryApp
             return database.Table<Item>().ToListAsync();
         }
 
+
+
         public Task<Item> GetItemAsync(int id)
         {
             return database.Table<Item>().Where(i => i.ItemId == id).FirstOrDefaultAsync();

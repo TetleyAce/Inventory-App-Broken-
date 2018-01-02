@@ -13,7 +13,7 @@ using ZXing.Mobile;
 
 namespace InventoryApp.Droid
 {
-
+    
     [Activity(Label = "InventoryApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {

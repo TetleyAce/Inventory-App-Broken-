@@ -5,7 +5,7 @@ using SQLite;
 
 namespace InventoryApp
 {
-    public class Item
+    public class Item : IEquatable<Item>
     {
         [PrimaryKey, AutoIncrement]
         public int ItemId
@@ -30,6 +30,15 @@ namespace InventoryApp
         {
             get;
             set;
+        }
+
+        public bool Equals(Item other)
+        {
+            // Would still want to check for null etc. first.
+            return this.ItemId == other.ItemId &&
+                   this.ItemName == other.ItemName &&
+                   this.Barcode == other.Barcode &&
+                   this.Quantity == other.Quantity;
         }
     }
 }
