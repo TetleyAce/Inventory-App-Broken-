@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InventoryApp.ItemPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Name" Grid.Row="0" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Entry Text="{Binding ItemName}" Grid.Row="0" Grid.Column="1"></Entry>
+                <Label Text="Barcode" Grid.Row="1" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Entry Text="{Binding Barcode}" Grid.Row="1" Grid.Column="1"></Entry>
+                <Label Text="Quantity" Grid.Row="2" Grid.Column="0" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                <Entry Text="{Binding Quantity}" Grid.Row="2" Grid.Column="1"></Entry>
+            </Grid>
+            <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" TextColor="White" Clicked="Save_Clicked"/>
+            <Button Text="Delete" HorizontalOptions="FillAndExpand" BackgroundColor="Red" TextColor="White" Clicked="Delete_Clicked"/>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>
