@@ -23,6 +23,11 @@
                 <Button Text="+" BackgroundColor="LightSlateGray"  WidthRequest="50" HeightRequest="50" Clicked="Addition_Clicked"/>
             </StackLayout>
 
+            <StackLayout>
+              <Picker Title="Locations" VerticalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
+
             <BoxView HeightRequest="1" WidthRequest="400" Margin="20"/>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

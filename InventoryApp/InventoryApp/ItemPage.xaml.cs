@@ -79,7 +79,10 @@ namespace InventoryApp
         {
             int _quantity;
             Int32.TryParse(CounterEntry.Text, out _quantity);
-            _quantity--;
+            if (_quantity > 0)
+            {
+                _quantity--;
+            }
             CounterEntry.Text = Convert.ToString(_quantity);
         }
     }
