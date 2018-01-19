@@ -44,5 +44,10 @@ namespace InventoryApp
         {
             return database.DeleteAsync(item);
         }
+
+        public IEnumerable<Item> QueryItems(string keyWord)
+        {
+            return database.Query<Item>("select * from ItemDatabase where ItemName = ?", keyWord);
+        }
     }
 }

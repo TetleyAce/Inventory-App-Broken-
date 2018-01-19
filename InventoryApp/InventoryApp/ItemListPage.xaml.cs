@@ -26,6 +26,7 @@ namespace InventoryApp
             searchItem.Clicked += async (sender, e) =>
             {
                 await DisplayAlert("Coming Soon...", "The Search feature is not fully implemented yet please try again at a later time.", "OK!");
+                Navigation.PushAsync();
             };
 
             ToolbarItems.Add(searchItem);
